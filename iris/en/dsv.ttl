@@ -1,0 +1,3346 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix dsv: <https://w3id.org/dsv#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix cardinality: <https://w3id.org/dsv/cardinality#>.
+@prefix requirement: <https://w3id.org/dsv/requirement-level#>.
+@prefix role: <https://w3id.org/dsv/class-role#>.
+@prefix prof: <http://www.w3.org/ns/dx/prof/>.
+@prefix : <https://example.com/profile/ccmmrembiap#>.
+
+
+<https://example.com/profile/ccmmrembiap#> a prof:Profile, dsv:ApplicationProfile.
+:ConjuntoDeDatos dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Conjunto de datos"@es, "Dataset "@en, "Dataset"@it, "Datová sada"@cs, "Jeu de données"@fr, "Σύνολο Δεδομένων"@el, "قائمة بيانات"@ar, "データセット"@ja, "Datasæt"@da;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Study.> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Description"^^rdf:langString;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.description>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.description>
+];
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Dataset.> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "version"^^rdf:langString;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource dct:conformsTo
+];
+    dsv:property dct:conformsTo;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#anyURI>.
+
+<https://example.com/profile/ccmmrembiap#ProvenanceStatement.provenance> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "has provenance"@en;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.provenance>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.provenance>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.provenance>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ProvenanceStatement.
+
+<https://example.com/profile/ccmmrembiap#Dataset.qualifiedRelation> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.qualifiedRelation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.qualifiedRelation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.qualifiedRelation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.qualifiedRelation>
+];
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ResourceToAgentRelationship.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasTermsOfUse> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasTermsOfUse>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasTermsOfUse>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasTermsOfUse>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasTermsOfUse>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :TermsOfUse.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasIdentifier> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasIdentifier>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasIdentifier>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Identifier.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasFundingReference> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasFundingReference>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasFundingReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasFundingReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasFundingReference>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :FundingReference.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasRelatedResource> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasRelatedResource>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasRelatedResource>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasRelatedResource>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasRelatedResource>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Resource.
+
+<https://example.com/profile/ccmmrembiap#ProvenanceStatement.acknowledgement> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "acknowledgement"@en;
+    skos:definition "Text containing special thanks related to the dataset creation and publication."@en;
+    dsv:profileOf <https://example.com/profile/ccmmrembiap#Study.>;
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Dataset.title> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.title>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.title>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasTimeReference> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasTimeReference>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasTimeReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasTimeReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasTimeReference>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :TimeReference.
+
+<https://example.com/profile/ccmmrembiap#Dataset.publicationYear> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.publicationYear>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.publicationYear>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.publicationYear>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.publicationYear>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#gYear>.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasAlternateTitle> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasAlternateTitle>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasAlternateTitle>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasAlternateTitle>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasAlternateTitle>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :AlternateTitle.
+
+<https://example.com/profile/ccmmrembiap#Dataset.isDescribedBy> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.isDescribedBy>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.isDescribedBy>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.isDescribedBy>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.isDescribedBy>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :MetadataRecord.
+
+<https://example.com/profile/ccmmrembiap#Dataset.otherLanguage> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.otherLanguage>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.otherLanguage>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.otherLanguage>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.otherLanguage>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :LanguageSystem.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasSubject> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasSubject>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasSubject>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasSubject>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasSubject>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Subject.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasValidationResult> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasValidationResult>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasValidationResult>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasValidationResult>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasValidationResult>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ValidationResult.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasLocation> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasLocation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasLocation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasLocation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasLocation>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Location.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasDistribution> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.hasDistribution>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasDistribution>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasDistribution>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.hasDistribution>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Distribution.
+
+<https://example.com/profile/ccmmrembiap#Dataset.hasResourceType> dsv:domain :ConjuntoDeDatos;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Dataset.resourceType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.resourceType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.resourceType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Dataset.resourceType>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ResourceType.
+:ProvenanceStatement dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ProvenanceStatement>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ProvenanceStatement>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ProvenanceStatement>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ProvenanceStatement>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ProvenanceStatement.label> dsv:domain :ProvenanceStatement;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ProvenanceStatement.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ProvenanceStatement.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ProvenanceStatement.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ProvenanceStatement.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:Agent dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Agent>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Agent.contactPoint> dsv:domain :Agent;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Agent.contactPoint>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent.contactPoint>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent.contactPoint>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent.contactPoint>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ContactDetails.
+
+<https://example.com/profile/ccmmrembiap#Agent.hasIdentifier> dsv:domain :Agent;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Agent.hasIdentifier>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent.hasIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent.hasIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Agent.hasIdentifier>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Identifier.
+
+<https://example.com/profile/ccmmrembiap#Agent.name> dsv:domain :Agent;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://mff-uk.github.io/specifications/dcat-ap/#Agent.name>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-ap/#Agent.name>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-ap/#Agent.name>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-ap/#Agent.name>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:ResourceToAgentRelationship dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ResourceToAgentRelationship>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceToAgentRelationship>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceToAgentRelationship>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceToAgentRelationship>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ResourceToAgentRelationship.hadRole> dsv:domain :ResourceToAgentRelationship;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/DatasetToAgentRelationship.hadRole>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DatasetToAgentRelationship.hadRole>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DatasetToAgentRelationship.hadRole>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DatasetToAgentRelationship.hadRole>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ResourceAgentRoleType.
+
+<https://example.com/profile/ccmmrembiap#Agent.relation> dsv:domain :ResourceToAgentRelationship;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ResourceToAgentRelationship.relation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceToAgentRelationship.relation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceToAgentRelationship.relation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceToAgentRelationship.relation>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Agent.
+:ResourceAgentRoleType dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ResourceAgentRoleType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceAgentRoleType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceAgentRoleType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceAgentRoleType>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ResourceAgentRoleType.label> dsv:domain :ResourceAgentRoleType;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ResourceAgentRoleType.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceAgentRoleType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceAgentRoleType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceAgentRoleType.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+:Person dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:specializes :Agent, :Agent;
+    dsv:profileOf <https://model.ccmm.cz/rd/Person>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Person.firstName> dsv:domain :Person;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "First name"@en;
+    dsv:profileOf <https://model.ccmm.cz/rd/Person.GivenName>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.GivenName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.GivenName>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Person.lastName> dsv:domain :Person;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Last name"@en;
+    dsv:profileOf <https://model.ccmm.cz/rd/Person.FamilyName>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.FamilyName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.FamilyName>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Person.hasAffiliation> dsv:domain :Person;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Person.hasAffiliation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.hasAffiliation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.hasAffiliation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Person.hasAffiliation>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Organization.
+:Organization dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:specializes :Agent;
+    dsv:profileOf <https://model.ccmm.cz/rd/Organization>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Organization>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Organization>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Organization>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Organization.alternateName> dsv:domain :Organization;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Organization.AlternateName>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Organization.AlternateName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Organization.AlternateName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Organization.AlternateName>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/text>.
+
+<https://example.com/profile/ccmmrembiap#Organization.> dsv:domain :Organization;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Organization URL"@en;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://usefulinc.com/ns/doap#homepage>
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property <http://usefulinc.com/ns/doap#homepage>;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#anyURI>.
+:TermsOfUse dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TermsOfUse>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#TermsOfUse.description> dsv:domain :TermsOfUse;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TermsOfUse.Description>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.Description>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.Description>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.Description>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/text>.
+
+<https://example.com/profile/ccmmrembiap#TermsOfUse.license> dsv:domain :TermsOfUse;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TermsOfUse.license>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.license>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.license>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.license>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :LicenseDocument.
+
+<https://example.com/profile/ccmmrembiap#TermsOfUse.accessRights> dsv:domain :TermsOfUse;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TermsOfUse.accessRights>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.accessRights>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.accessRights>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TermsOfUse.accessRights>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :AccessRights.
+:ContactDetails dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ContactDetails>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ContactDetails.hasAddress> dsv:domain :ContactDetails;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ContactDetails.hasAddress>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.hasAddress>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.hasAddress>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.hasAddress>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Address.
+
+<https://example.com/profile/ccmmrembiap#ContactDetails.> dsv:domain :ContactDetails;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "email"^^rdf:langString;
+    dsv:profileOf <https://model.ccmm.cz/rd/ContactDetails.email>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.email>
+];
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#ContactDetails.dataBox> dsv:domain :ContactDetails;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ContactDetails.dataBox>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.dataBox>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.dataBox>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.dataBox>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#ContactDetails.phone> dsv:domain :ContactDetails;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ContactDetails.phone>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.phone>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.phone>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ContactDetails.phone>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+:Address dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Address.> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.label>
+];
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Address.addressArea> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.addressArea>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.addressArea>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.addressArea>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.addressArea>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.administrativeUnitLevel1> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.administrativeUnitLevel1>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.administrativeUnitLevel1>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.administrativeUnitLevel1>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.administrativeUnitLevel1>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.administrativeUnitLevel2> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.administrativeUnitLevel2>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.administrativeUnitLevel2>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.administrativeUnitLevel2>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.administrativeUnitLevel2>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.fullAddress> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.fullAddress>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.fullAddress>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.fullAddress>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.fullAddress>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.locatorDesignator> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.locatorDesignator>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.locatorDesignator>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.locatorDesignator>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.locatorDesignator>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.locatorName> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.locatorName>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.locatorName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.locatorName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.locatorName>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.postCode> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.postCode>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.postCode>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.postCode>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.postCode>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.postName> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.postName>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.postName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.postName>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.postName>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.thoroughfare> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.thoroughfare>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.thoroughfare>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.thoroughfare>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.thoroughfare>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Address.postOfficeBox> dsv:domain :Address;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Address.poBox>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.poBox>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.poBox>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Address.poBox>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+:Identifier dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Identifier>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Identifier.value> dsv:domain :Identifier;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Identifier.value>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier.value>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier.value>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier.value>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Identifier.inScheme> dsv:domain :Identifier;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Identifier.inScheme>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier.inScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier.inScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Identifier.inScheme>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :IdentifierScheme.
+:FundingReference dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/FundingReference>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#FundingReference.awardTitle> dsv:domain :FundingReference;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/FundingReference.awardTitle>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.awardTitle>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.awardTitle>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.awardTitle>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#FundingReference.fundingProgram> dsv:domain :FundingReference;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/FundingReference.fundingProgram>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.fundingProgram>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.fundingProgram>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#anyURI>.
+
+<https://example.com/profile/ccmmrembiap#FundingReference.localIdentifier> dsv:domain :FundingReference;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/FundingReference.localIdentifier>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.localIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.localIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.localIdentifier>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#FundingReference.hasFunder> dsv:domain :FundingReference;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/FundingReference.hasFunder>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.hasFunder>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.hasFunder>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/FundingReference.hasFunder>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Agent.
+:Resource dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Resource>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Resource.qualifiedRelation> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://example.com/profile/ccmmrembiap#Dataset.qualifiedRelation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://example.com/profile/ccmmrembiap#Dataset.qualifiedRelation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://example.com/profile/ccmmrembiap#Dataset.qualifiedRelation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://example.com/profile/ccmmrembiap#Dataset.qualifiedRelation>
+];
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ResourceToAgentRelationship.
+
+<https://example.com/profile/ccmmrembiap#Resource.hasIdentifier> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Resource.hasIdentifier>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.hasIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.hasIdentifier>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.hasIdentifier>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Identifier.
+
+<https://example.com/profile/ccmmrembiap#Resource.resourceUrl> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Resource.resourceURL>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.resourceURL>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.resourceURL>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Resource.title> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Resource.title>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.title>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Resource.hasTimeReference> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Resource.hasTimeReference>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.hasTimeReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.hasTimeReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.hasTimeReference>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :TimeReference.
+
+<https://example.com/profile/ccmmrembiap#Resource.description> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource dct:description
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource dct:description
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property dct:description;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Resource.hasResourceType> dsv:domain :Resource;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Resource.type>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.type>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.type>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Resource.type>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ResourceType.
+:AccessRights dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/AccessRights>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AccessRights>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AccessRights>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AccessRights>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#AccessRights.label> dsv:domain :AccessRights;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/AccessRights.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AccessRights.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AccessRights.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AccessRights.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:LicenseDocument dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/LicenseDocument>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LicenseDocument>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LicenseDocument>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LicenseDocument>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#LicenseDocument.label> dsv:domain :LicenseDocument;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/LicenseDocument.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LicenseDocument.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LicenseDocument.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LicenseDocument.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:StudyComponent dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Study Component"@en;
+    dsv:profileOf <https://mff-uk.github.io/specifications/dcat-dap/#Class>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-dap/#Class>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-dap/#Class>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#StudyComponent.subclassof> dsv:domain :StudyComponent;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource rdfs:subClassOf
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource rdfs:subClassOf
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property rdfs:subClassOf;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ConjuntoDeDatos.
+
+<https://example.com/profile/ccmmrembiap#StudyComponent.description> dsv:domain :StudyComponent;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource dct:description
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource dct:description
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property dct:description;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#StudyComponent.title> dsv:domain :StudyComponent;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource dct:title
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource dct:title
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property dct:title;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+:SubjectScheme dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/SubjectScheme>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/SubjectScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/SubjectScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/SubjectScheme>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#SubjectScheme.label> dsv:domain :SubjectScheme;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/SubjectScheme.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/SubjectScheme.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/SubjectScheme.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/SubjectScheme.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:Subject dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Subject>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Subject.classificationCode> dsv:domain :Subject;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Subject.classificationCode>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.classificationCode>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.classificationCode>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.classificationCode>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#string>.
+
+<https://example.com/profile/ccmmrembiap#Subject.title> dsv:domain :Subject;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Subject.title>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.title>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+
+<https://example.com/profile/ccmmrembiap#Subject.definition> dsv:domain :Subject;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Subject.definition>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.definition>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.definition>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.definition>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/text>.
+
+<https://example.com/profile/ccmmrembiap#Subject.inSubjectScheme> dsv:domain :Subject;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Subject.inSubjectScheme>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.inSubjectScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.inSubjectScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Subject.inSubjectScheme>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :SubjectScheme.
+:TimeReference dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeReference>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#TimeReference.hasDateType> dsv:domain :TimeReference;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeReference.hasType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference.hasType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference.hasType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference.hasType>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :DateType.
+
+<https://example.com/profile/ccmmrembiap#TimeReference.dateInformation> dsv:domain :TimeReference;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeReference.dateInformation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference.dateInformation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference.dateInformation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeReference.dateInformation>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/text>.
+:DateType dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/DateType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DateType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DateType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DateType>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#DateType.label> dsv:domain :DateType;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/DateType.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DateType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DateType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DateType.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:TimeInstant dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:specializes :TimeReference;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeInstant>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInstant>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInstant>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInstant>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#TimeInstant.date> dsv:domain :TimeInstant;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeInstant.date>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInstant.date>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInstant.date>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#date>.
+:Interval dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:specializes :TimeReference;
+    dsv:profileOf <https://model.ccmm.cz/rd/Interval>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Interval>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Interval>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Interval>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#TimeReference.hasBeginning> dsv:domain :Interval;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeInterval.hasBeginning>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInterval.hasBeginning>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInterval.hasBeginning>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInterval.hasBeginning>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :TimeInstant.
+
+<https://example.com/profile/ccmmrembiap#TimeReference.hasEnd> dsv:domain :Interval;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/TimeInterval.hasEnd>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInterval.hasEnd>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInterval.hasEnd>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/TimeInterval.hasEnd>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :TimeInstant.
+:ApplicationProfile dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ApplicationProfile>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ApplicationProfile>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ApplicationProfile>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ApplicationProfile>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ApplicationProfile.label> dsv:domain :ApplicationProfile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ApplicationProfile.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ApplicationProfile.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ApplicationProfile.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ApplicationProfile.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:IdentifierScheme dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/IdentifierScheme>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/IdentifierScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/IdentifierScheme>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/IdentifierScheme>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#IdentifierScheme.label> dsv:domain :IdentifierScheme;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/IdentifierScheme.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/IdentifierScheme.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/IdentifierScheme.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/IdentifierScheme.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:AlternateTitle dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://techlib.cz/vocabulary/ccmm/AlternateTitle>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://techlib.cz/vocabulary/ccmm/AlternateTitle>
+];
+    a dsv:ClassProfile;
+    dsv:class <https://techlib.cz/vocabulary/ccmm/AlternateTitle>.
+
+<https://example.com/profile/ccmmrembiap#AlternateTitle.title> dsv:domain :AlternateTitle;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/AlternateTitle.title>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitle.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitle.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitle.title>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+
+<https://example.com/profile/ccmmrembiap#AlternateTitle.hasAlternateTitleType> dsv:domain :AlternateTitle;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/AlternateTitle.hasType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitle.hasType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitle.hasType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitle.hasType>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :AlternateTitleType.
+:AlternateTitleType dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/AlternateTitleType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitleType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitleType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitleType>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#AlternateTitleType.label> dsv:domain :AlternateTitleType;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/AlternateTitleType.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitleType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitleType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/AlternateTitleType.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:MetadataRecord dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#MetadataRecord.dateCreated> dsv:domain :MetadataRecord;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord.DateCreated>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.DateCreated>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.DateCreated>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.DateCreated>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#date>.
+
+<https://example.com/profile/ccmmrembiap#MetadataRecord.dateUpdated> dsv:domain :MetadataRecord;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord.DateUpdated>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.DateUpdated>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.DateUpdated>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.DateUpdated>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#date>.
+
+<https://example.com/profile/ccmmrembiap#MetadataRecord.describes> dsv:domain :MetadataRecord;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord.describes>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.describes>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.describes>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.describes>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ConjuntoDeDatos.
+
+<https://example.com/profile/ccmmrembiap#MetadataRecord.conformsToStandard> dsv:domain :MetadataRecord;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord.conformsToStandard>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.conformsToStandard>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.conformsToStandard>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.conformsToStandard>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ApplicationProfile.
+
+<https://example.com/profile/ccmmrembiap#MetadataRecord.qualifiedRelation> dsv:domain :MetadataRecord;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord.qualifiedRelation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.qualifiedRelation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.qualifiedRelation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.qualifiedRelation>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ResourceToAgentRelationship.
+
+<https://example.com/profile/ccmmrembiap#MetadataRecord.originalRepository> dsv:domain :MetadataRecord;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MetadataRecord.originalRepository>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.originalRepository>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.originalRepository>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MetadataRecord.originalRepository>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Repository.
+:Repository dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Repository>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Repository>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Repository>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Repository>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Repository.label> dsv:domain :Repository;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Repository.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Repository.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Repository.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Repository.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:LanguageSystem dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/LanguageSystem>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LanguageSystem>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LanguageSystem>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LanguageSystem>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#LanguageSystem.label> dsv:domain :LanguageSystem;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/LanguageSystem.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LanguageSystem.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LanguageSystem.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LanguageSystem.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:ValidationResult dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ValidationResult>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ValidationResult>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ValidationResult>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ValidationResult>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ValidationResult.label> dsv:domain :ValidationResult;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ValidationResult.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ValidationResult.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ValidationResult.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ValidationResult.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:Location dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Location>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Location.locationName> dsv:domain :Location;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Location.name>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.name>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.name>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.name>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/text>.
+
+<https://example.com/profile/ccmmrembiap#Location.boundingBox> dsv:domain :Location;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Location.bbox>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.bbox>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.bbox>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.bbox>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Location.geometry> dsv:domain :Location;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Location.geometry>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.geometry>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.geometry>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.geometry>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Geometry.
+
+<https://example.com/profile/ccmmrembiap#Location.hasRelatedObject> dsv:domain :Location;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Location.hasRelatedObject>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.hasRelatedObject>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.hasRelatedObject>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.hasRelatedObject>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Resource.
+
+<https://example.com/profile/ccmmrembiap#Location.hasLocationRelationType> dsv:domain :Location;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Location.hasType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.hasType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.hasType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Location.hasType>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :LocationRelationType.
+:Geometry dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Geometry>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Geometry>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Geometry>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Geometry>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Geometry.label> dsv:domain :Geometry;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Geometry.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Geometry.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Geometry.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Geometry.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:LocationRelationType dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/LocationRelationType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LocationRelationType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LocationRelationType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LocationRelationType>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#LocationRelationType.label> dsv:domain :LocationRelationType;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/LocationRelationType.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LocationRelationType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LocationRelationType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/LocationRelationType.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:Distribution dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Distribution.title> dsv:domain :Distribution;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution.title>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution.title>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution.title>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:DataService dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/DataService>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#DataService.label> dsv:domain :DataService;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/DataService.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+
+<https://example.com/profile/ccmmrembiap#DataService.endpointUrl> dsv:domain :DataService;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/DataService.endpointUrl>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService.endpointUrl>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService.endpointUrl>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/DataService.endpointUrl>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Resource.
+:Distribution-DataService dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:specializes :Distribution;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DataService>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Distribution.accessService> dsv:domain :Distribution-DataService;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DataService.accessService>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.accessService>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.accessService>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.accessService>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :DataService.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DataService.description> dsv:domain :Distribution-DataService;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DataService.Description>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.Description>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.Description>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <https://ofn.gov.cz/zdroj/základní-datové-typy/2020-07-01/text>.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DataService.specification> dsv:domain :Distribution-DataService;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DataService.specification>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.specification>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.specification>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.specification>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ApplicationProfile.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DataService.documentation> dsv:domain :Distribution-DataService;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DataService.documentation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.documentation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.documentation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.documentation>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Documentation.
+:Distribution-DownloadableFile dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:specializes :Distribution;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.byteSize> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile.byteSize>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.byteSize>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.byteSize>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#integer>.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.conformsToSchema> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile.conformsToSchema>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.conformsToSchema>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.conformsToSchema>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.conformsToSchema>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ApplicationProfile.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.checksum> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DataService.checksum>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.checksum>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.checksum>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DataService.checksum>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Checksum.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.hasFormat> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile.format>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.format>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.format>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.format>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Format.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.mediaType> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile.mediaType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.mediaType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.mediaType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.mediaType>
+];
+    dsv:cardinality cardinality:01;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :MediaType.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.accessUrl> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile.accessUrl>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.accessUrl>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.accessUrl>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.accessUrl>
+];
+    dsv:cardinality cardinality:1n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :File.
+
+<https://example.com/profile/ccmmrembiap#Distribution-DownloadableFile.downloadUrl> dsv:domain :Distribution-DownloadableFile;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Distribution-DownloadableFile.downloadUrl>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.downloadUrl>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.downloadUrl>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Distribution-DownloadableFile.downloadUrl>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :File.
+:Documentation dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Documentation>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Documentation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Documentation>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Documentation>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Documentation.label> dsv:domain :Documentation;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Documentation.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Documentation.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Documentation.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Documentation.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:Checksum dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Checksum>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Checksum>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Checksum>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Checksum>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Checksum.checksumValue> dsv:domain :Checksum;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Checksum.checksumValue>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Checksum.checksumValue>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Checksum.checksumValue>
+];
+    dsv:cardinality cardinality:11;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange <http://www.w3.org/2001/XMLSchema#hexBinary>.
+
+<https://example.com/profile/ccmmrembiap#Checksum.algorithm> dsv:domain :Checksum;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://mff-uk.github.io/specifications/dcat-dap/#Checksum.algorithm>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-dap/#Checksum.algorithm>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-dap/#Checksum.algorithm>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://mff-uk.github.io/specifications/dcat-dap/#Checksum.algorithm>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :ChecksumAlgorithm.
+:ChecksumAlgorithm dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ChecksumAlgorithm>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ChecksumAlgorithm>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ChecksumAlgorithm>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ChecksumAlgorithm>
+];
+    a dsv:ClassProfile.
+:Format dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Format>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Format>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Format>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Format>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#Format.label> dsv:domain :Format;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/Format.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Format.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Format.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/Format.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:MediaType dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MediaType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MediaType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MediaType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MediaType>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#MediaType.label> dsv:domain :MediaType;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/MediaType.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MediaType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MediaType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/MediaType.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:File dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/File>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/File>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/File>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/File>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#File.label> dsv:domain :File;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/File.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/File.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/File.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/File.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
+:Method dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Method"@en;
+    skos:scopeNote "Use IRI to FBbi ontology"@en;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://w3id.org/nfdi4ing/metadata4ing#Method>
+];
+    a dsv:ClassProfile;
+    dsv:class <http://w3id.org/nfdi4ing/metadata4ing#Method>.
+
+<https://example.com/profile/ccmmrembiap#Method.label> dsv:domain :Method;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource rdfs:label
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource rdfs:label
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property rdfs:label;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Method.implementedBy> dsv:domain :Method;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <http://data.europa.eu/eli/ontology#implemented_by>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://data.europa.eu/eli/ontology#implemented_by>
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property <http://data.europa.eu/eli/ontology#implemented_by>;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Tool.
+:Tool dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Tool"@en;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://w3id.org/nfdi4ing/metadata4ing#Tool>
+];
+    a dsv:ClassProfile;
+    dsv:class <http://w3id.org/nfdi4ing/metadata4ing#Tool>.
+
+<https://example.com/profile/ccmmrembiap#.label> dsv:domain :Tool;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource rdfs:label
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource rdfs:label
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property rdfs:label;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#Tool.implements> dsv:domain :Tool;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <http://data.europa.eu/eli/ontology#implements>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://data.europa.eu/eli/ontology#implements>
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property <http://data.europa.eu/eli/ontology#implements>;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Method.
+:ProcessingStep dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Processing Step"@en;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://w3id.org/nfdi4ing/metadata4ing#ProcessingStep>
+];
+    a dsv:ClassProfile;
+    dsv:class <http://w3id.org/nfdi4ing/metadata4ing#ProcessingStep>.
+
+<https://example.com/profile/ccmmrembiap#ProcessingStep.label> dsv:domain :ProcessingStep;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource rdfs:label
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource rdfs:label
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property rdfs:label;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdfs:Literal.
+
+<https://example.com/profile/ccmmrembiap#ProcessingStep.> dsv:domain :ProcessingStep;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "Realizes Method"@en;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://w3id.org/nfdi4ing/metadata4ing#realizesMethod>
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property <http://w3id.org/nfdi4ing/metadata4ing#realizesMethod>;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Method.
+
+<https://example.com/profile/ccmmrembiap#ProcessingStep.hasEmployedTool> dsv:domain :ProcessingStep;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    skos:prefLabel "has employed tool"@en;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <http://w3id.org/nfdi4ing/metadata4ing#hasEmployedTool>
+];
+    dsv:cardinality cardinality:0n;
+    dsv:property <http://w3id.org/nfdi4ing/metadata4ing#hasEmployedTool>;
+    a dsv:ObjectPropertyProfile;
+    dsv:objectPropertyRange :Tool.
+:ResourceType dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ResourceType>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceType>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceType>
+];
+    a dsv:ClassProfile.
+
+<https://example.com/profile/ccmmrembiap#ResourceType.label> dsv:domain :ResourceType;
+    dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
+    a dsv:TermProfile;
+    dsv:profileOf <https://model.ccmm.cz/rd/ResourceType.label>;
+    dsv:reusesPropertyValue [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:prefLabel;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:definition;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceType.label>
+], [
+  a dsv:PropertyValueReuse;
+  dsv:reusedProperty skos:scopeNote;
+  dsv:reusedFromResource <https://model.ccmm.cz/rd/ResourceType.label>
+];
+    dsv:cardinality cardinality:0n;
+    a dsv:DatatypePropertyProfile;
+    dsv:datatypePropertyRange rdf:langString.
