@@ -3344,13 +3344,3 @@
     dsv:cardinality cardinality:0n;
     a dsv:DatatypePropertyProfile;
     dsv:datatypePropertyRange rdf:langString.
-:Test dct:isPartOf <https://example.com/profile/ccmmrembiap#>;
-    a dsv:TermProfile;
-    skos:prefLabel "test"@en, "Katalogizovaný zdroj"@cs, "Recurso catalogado"@es, "Risorsa catalogata"@it, "Katalogiseret ressource"@da;
-    dsv:reusesPropertyValue [
-  a dsv:PropertyValueReuse;
-  dsv:reusedProperty skos:definition;
-  dsv:reusedFromResource <http://www.w3.org/ns/dcat#Resource>
-];
-    a dsv:ClassProfile;
-    dsv:class <http://www.w3.org/ns/dcat#Resource>.
